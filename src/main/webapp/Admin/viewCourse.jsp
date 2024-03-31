@@ -105,10 +105,19 @@
                                 <!-- Each card represents a link to different sections -->
                                 <div class="col-md-12 mb-4">
                                     <div class="card h-100"
-                                         onclick="window.location.href='viewCourseModules.jsp?courseID=<%=request.getParameter("courseID")%>';"
+                                         onclick="window.location.href='courseModules.jsp?courseID=<%=request.getParameter("courseID")%>';"
                                          style="cursor:pointer;">
                                         <div class="card-body">
                                             <h5 class="card-title">Modules</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <div class="card h-100"
+                                         onclick="window.location.href='courseMaterials.jsp?courseID=<%=request.getParameter("courseID")%>';"
+                                         style="cursor:pointer;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Course Materials</h5>
                                         </div>
                                     </div>
                                 </div>

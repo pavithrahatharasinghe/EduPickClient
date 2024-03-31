@@ -39,9 +39,8 @@
                                 <div class="card-body">
                                     <form id="addModuleForm">
                                         <div class="form-group">
-                                            <label for="courseID">Course ID</label>
-                                            <input type="number" class="form-control" id="courseID" name="courseID"
-                                                   placeholder="Enter Course ID" required>
+
+
                                         </div>
                                         <div class="form-group">
                                             <label for="moduleName">Module Name</label>
@@ -78,14 +77,9 @@
                                 <div class="card-body">
                                     <form id="updateModuleForm">
                                         <div class="form-group">
-                                            <label for="moduleIdInput">Module ID</label>
+
                                             <input type="text" class="form-control" id="moduleIdInput" placeholder="Existing Module ID"
                                                    name="moduleIdInput" required hidden>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newCourseID">Course ID</label>
-                                            <input type="number" class="form-control" id="newCourseID" placeholder="Enter Course ID" name="newCourseID"
-                                                   required>
                                         </div>
                                         <div class="form-group">
                                             <label for="newModuleName">New Module Name</label>
@@ -125,7 +119,6 @@
                                         <thead>
                                         <tr>
                                             <th>Module ID</th>
-                                            <th>Course ID</th>
                                             <th>Module Name</th>
                                             <th>Module Description</th>
                                             <th>Module URL</th>
@@ -155,19 +148,24 @@
 </body>
 </html>
 <script>
-    const addModuleUrl = "http://localhost:8080/EduPickRest_war_exploded/api/modules";
+    //get courseID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseID = urlParams.get('courseID');
+
 
     $(document).ready(function () {
         $('#addModuleForm').submit(async function (event) {
             event.preventDefault();
 
             const formData = {
-                courseID: $('#courseID').val(),
+                courseID: courseID,
                 moduleName: $('#moduleName').val(),
                 moduleDescription: $('#moduleDescription').val(),
                 moduleURL: $('#moduleURL').val(),
                 moduleStatus: $('#moduleStatus').val()
             };
+
+            const addModuleUrl = 'http://localhost:8080/EduPickRest_war_exploded/api/modules';
 
             try {
                 const response = await fetch(addModuleUrl, {
@@ -197,7 +195,8 @@
 
     // Function to refresh the modules table
     function refreshModuleTable() {
-        const url = 'http://localhost:8080/EduPickRest_war_exploded/api/modules';
+
+        const url = 'http://localhost:8080/EduPickRest_war_exploded/api/modules/byCourse/' + courseID;
         const options = {
             method: 'GET',
             headers: {
@@ -213,7 +212,6 @@
                 $.each(data, function (index, module) {
                     const row = '<tr>' +
                         '<td>' + module.moduleID + '</td>' +
-                        '<td>' + module.courseID + '</td>' +
                         '<td>' + module.moduleName + '</td>' +
                         '<td>' + module.moduleDescription + '</td>' +
                         '<td>' + module.moduleURL + '</td>' +
@@ -222,7 +220,7 @@
                         '<button type="button" class="btn btn-danger btn-delete">Delete</button>' +
                         '<button type="button" class="btn btn-primary btn-update" data-toggle="modal" data-target="#updateModuleModal">Update</button>' +
                         '<a href="viewModuleDetails.jsp?ModuleID=' + module.moduleID + '" class="btn btn-primary btn-view">View</a>' +
-                        '<a href="courseAssignments.jsp?ModuleID=' + module.moduleID + '" class="btn btn-primary btn-view">View Assignments</a>' +
+                        '<a href="courseAssignments.jsp?ModuleID=' + module.moduleID + '&CourseID=' + courseID + '" class="btn btn-primary btn-view">Assignments</a>' +
                         '</td>' +
                         '</tr>';
                     $('#moduleTableBody').append(row);
@@ -278,15 +276,19 @@
 
             // Retrieve form data
             const formData = {
-                courseID: $('#newCourseID').val(),
+                moduleID: moduleId,
+                courseID: courseID,
                 moduleName: $('#newModuleName').val(),
                 moduleDescription: $('#newModuleDescription').val(),
                 moduleURL: $('#newModuleURL').val(),
                 moduleStatus: $('#newModuleStatus').val()
             };
 
+            console.log(formData);
+            alert(formData);
+
             // Construct the URL for the API endpoint
-            const url = 'http://localhost:8080/EduPickRest_war_exploded/api/modules/' + moduleId;
+            const url = 'http://localhost:8080/EduPickRest_war_exploded/api/modules';
 
             try {
                 // Send PUT request to update module
@@ -310,23 +312,24 @@
             refreshModuleTable();
         });
 
-        //populate update form fields
+        // Event handler for updating a module
         $('#moduleTableBody').on('click', '.btn-update', function () {
             const row = $(this).closest('tr');
             const moduleId = row.find('td:eq(0)').text();
-            const courseID = row.find('td:eq(1)').text();
-            const moduleName = row.find('td:eq(2)').text();
-            const moduleDescription = row.find('td:eq(3)').text();
-            const moduleURL = row.find('td:eq(4)').text();
-            const moduleStatus = row.find('td:eq(5)').text();
+            const moduleName = row.find('td:eq(1)').text(); // Index adjusted to match the correct column
+            const moduleDescription = row.find('td:eq(2)').text();
+            const moduleURL = row.find('td:eq(3)').text(); // Index adjusted to match the correct column
+            const moduleStatus = row.find('td:eq(4)').text(); // Index adjusted to match the correct column
 
+            // Populate the update form fields with the retrieved values
             $('#moduleIdInput').val(moduleId);
-            $('#newCourseID').val(courseID);
             $('#newModuleName').val(moduleName);
             $('#newModuleDescription').val(moduleDescription);
-            $('#newModuleURL').val(moduleURL);
-            $('#newModuleStatus').val(moduleStatus);
+            $('#newModuleURL').val(moduleURL); // Set the value of New Module URL field
+            $('#newModuleStatus').val(moduleStatus); // Set the value of New Module Status field
         });
+
+
 
 
 

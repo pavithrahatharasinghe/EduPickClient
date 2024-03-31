@@ -39,16 +39,6 @@
                                 <div class="card-body">
                                     <form id="addAssignmentForm">
                                         <div class="form-group">
-                                            <label for="moduleID">Module ID</label>
-                                            <input type="number" class="form-control" id="moduleID" name="moduleID"
-                                                   placeholder="Enter Module ID" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="courseID">Course ID</label>
-                                            <input type="number" class="form-control" id="courseID" name="courseID"
-                                                   placeholder="Enter Course ID" required>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="assignmentName">Assignment Name</label>
                                             <input type="text" class="form-control" id="assignmentName"
                                                    name="assignmentName"
@@ -101,15 +91,15 @@
                                         </div>
                                         <div class="form-group
                                             ">
-                                            <label>Module ID</label>
+
                                             <input type="number" class="form-control" id="newmoduleID"
-                                                   placeholder="Enter Module ID" name="moduleID" required>
+                                                   placeholder="Enter Module ID" name="moduleID" required hidden>
                                         </div>
                                         <div class="form-group
                                             ">
-                                            <label>Course ID</label>
+
                                             <input type="number" class="form-control" id="newcourseID"
-                                                   placeholder="Enter Course ID" name="courseID" required>
+                                                   placeholder="Enter Course ID" name="courseID" required hidden>
                                         </div>
 
 
@@ -200,6 +190,13 @@
 <jsp:include page="Common/adminFooterScripts.jsp"/>
 
 <script>
+    //get Course ID and Module ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseID = urlParams.get('CourseID');
+    const moduleID = urlParams.get('ModuleID');
+
+
+
     const addAssignmentUrl = "http://localhost:8080/EduPickRest_war_exploded/api/assignments";
 
     $(document).ready(function () {
@@ -207,8 +204,8 @@
             event.preventDefault();
 
             const formData = {
-                moduleID: $('#moduleID').val(),
-                courseID: $('#courseID').val(),
+                moduleID: moduleID,
+                courseID: courseID,
                 assignmentName: $('#assignmentName').val(),
                 assignmentDescription: $('#assignmentDescription').val(),
                 assignmentURL: $('#assignmentURL').val(),
@@ -216,6 +213,8 @@
                 assignmentStatus: $('#assignmentStatus').val(),
                 dueDateTime: $('#dueDateTime').val()
             };
+
+            console.log(formData);
 
             try {
                 const response = await fetch(addAssignmentUrl, {
@@ -393,6 +392,7 @@
         refreshAssignmentTable();
     });
 });
+
 
 
 </script>
