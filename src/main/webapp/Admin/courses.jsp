@@ -58,9 +58,9 @@
                 </div>
         </div>
     </div>
-    <jsp:include page="Common/adminFooter.jsp"/>
 </div>
-</div>
+<jsp:include page="Common/adminFooter.jsp"/>
+
 <jsp:include page="Common/adminFooterScripts.jsp"/>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -95,7 +95,6 @@
                         '<td>' +
                         '<button class="btn btn-primary" onclick="viewCourse(' + course.courseID + ')">View</button>' +
                         '<button class="btn btn-danger" onclick="deleteCourse(' + course.courseID + ')">Delete</button>' +
-                        '<button class="btn btn-warning mr-2" onclick="updateCourse(' + course.courseID + ')">Update</button>' +
                         '</td>' +
                         '</tr>'
                     );
@@ -132,6 +131,7 @@
                 });
         }
     }
+
     function updateCourse(courseID) {
         // Here, fetch the course details from the API by the courseID
         // and then fill the modal inputs with those details.
@@ -153,7 +153,7 @@
             });
     }
 
-    $('#updateCourseForm').submit(function(event) {
+    $('#updateCourseForm').submit(function (event) {
         event.preventDefault(); // Prevent the default form submission
 
         const courseID = $('#updateCourseId').val(); // Assuming you have a hidden input for courseID

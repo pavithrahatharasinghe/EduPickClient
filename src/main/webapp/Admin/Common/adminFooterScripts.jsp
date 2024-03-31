@@ -39,3 +39,5 @@
 <!-- Page level custom scripts -->
 <script src="../assets/js/demo/chart-area-demo.js"></script>
 <script src="../assets/js/demo/chart-pie-demo.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

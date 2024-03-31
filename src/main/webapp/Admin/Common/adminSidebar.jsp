@@ -65,7 +65,7 @@
         <div id="collapseInstructors" class="collapse" aria-labelledby="headingInstructors" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="instructors.jsp">Manage Instructors</a>
-                <a class="collapse-item" href="../addInstructor.jsp">Add New Instructor</a>
+                <a class="collapse-item" href="addInstructor.jsp">Add New Instructor</a>
             </div>
         </div>
     </li>
