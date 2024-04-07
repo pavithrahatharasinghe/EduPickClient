@@ -88,7 +88,7 @@
 
     <!-- Logout -->
     <li class="nav-item">
-        <a class="nav-link" href="../../logout.jsp">
+        <a class="nav-link" href="../logout.jsp">
             <i class="fas fa-fw fa-sign-out-alt"></i>
             <span>Logout</span>
         </a>

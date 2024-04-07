@@ -17,7 +17,6 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-
     <jsp:include page="Common/studentSidebar.jsp"/>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -33,68 +32,41 @@
                 <jsp:include page="Common/studentNavbar.jsp"/>
 
                 <div class="container-fluid">
-                    <h1 class="h3 mb-2 text-gray-800">All Courses</h1>
-                    <p class="mb-4">Overview of all courses available in the institute.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Degree Pathway Prediction Form</h1>
+                    <p class="mb-4">Please fill out the form to predict your degree pathway.</p>
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                            <form id="predictionForm">
+                            <form id="degreePredictionForm">
                                 <div class="row">
                                     <div class="col-md-6">
-
                                         <div class="form-group">
-                                            <label for="hobbies">Hobbies:</label>
-                                            <select id="hobbies" name="hobbies" class="form-control" required>
-                                                <option value="Reading">Reading</option>
-                                                <option value="Sports">Sports</option>
-                                                <option value="Music">Music</option>
-                                                <option value="Art">Art</option>
-                                                <option value="Travel">Travel</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="skills">Skills:</label>
-                                            <select id="skills" name="skills" class="form-control" required>
-                                                <option value="Programming">Programming</option>
-                                                <option value="Communication">Communication</option>
-                                                <option value="Problem Solving">Problem Solving</option>
-                                                <option value="Leadership">Leadership</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="interest">Interest:</label>
-                                            <select id="interest" name="interest" class="form-control" required>
-                                                <option value="Science">Science</option>
-                                                <option value="Business">Business</option>
-                                                <option value="Arts">Arts</option>
-                                                <option value="Technology">Technology</option>
-                                                <option value="Engineering">Engineering</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="university">University:</label>
+                                            <label for="university">Institution:</label>
                                             <select id="university" name="university" class="form-control" required>
-                                                <option value="Informatics Institute of Technology">Informatics
-                                                    Institute of Technology
-                                                </option>
-                                                <option value="Sri Lanka Institute of Information Technology">Sri Lanka
-                                                    Institute of Information Technology
-                                                </option>
+                                                <option value="Select an institution">Select an institution</option>
+                                                <option value="Informatics Institute of Technology">Informatics Institute of Technology</option>
+                                                <option value="Sri Lanka Institute of Information Technology">Sri Lanka Institute of Information Technology</option>
                                                 <option value="ICBT Campus">ICBT Campus</option>
                                                 <option value="Esoft Metro Campus">Esoft Metro Campus</option>
-                                                <option value="Asia Pacific Institute of Information Technology">Asia
-                                                    Pacific Institute of Information Technology
-                                                </option>
+                                                <option value="Asia Pacific Institute of Information Technology">Asia Pacific Institute of Information Technology</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="dedicationHours">Dedication Hours Per Week:</label>
-                                            <select id="dedicationHours" name="dedicationHours" class="form-control"
-                                                    required>
+                                            <label for="influenceSelection">Influence:</label>
+                                            <select id="influenceSelection" name="influenceSelection" class="form-control" required>
+                                                <option value="Select an influence">Select an influence</option>
+                                                <option value="Internship Opportunities">Internship Opportunities</option>
+                                                <option value="Transferring Opportunities">Transferring Opportunities</option>
+                                                <option value="Curriculum and Teaching Style">Curriculum and Teaching Style</option>
+                                                <option value="Extra Curricular Activities">Extra Curricular Activities (Clubs & Societies, Sports)</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="studyHours">Weekly Study Hours:</label>
+                                            <select id="studyHours" name="studyHours" class="form-control" required>
+                                                <option value="Select weekly study hours">Select weekly study hours</option>
                                                 <option value="Under 10 hours">Under 10 hours</option>
                                                 <option value="10 - 20 hours">10 - 20 hours</option>
                                                 <option value="20 - 30 hours">20 - 30 hours</option>
@@ -103,96 +75,103 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="sportsClubs">Sports/Clubs:</label>
-                                            <select id="sportsClubs" name="sportsClubs" class="form-control" required>
+                                            <label for="sportsEngagement">Sports Engagement:</label>
+                                            <select id="sportsEngagement" name="sportsEngagement" class="form-control" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nonJobSpecificSkills">Non-Job Specific Skills:</label>
+                                            <select id="nonJobSpecificSkills" name="nonJobSpecificSkills" class="form-control" required>
+                                                <option value="Select a non-job specific skill">Select a non-job specific skill</option>
+                                                <option value="Communication">Communication</option>
+                                                <option value="Teamwork">Teamwork</option>
+                                                <option value="Problem Solving">Problem Solving</option>
+                                                <option value="Time Management">Time Management</option>
+                                                <option value="Adaptability">Adaptability</option>
+                                                <option value="Creativity">Creativity</option>
+                                                <option value="Work Ethic">Work Ethic</option>
+                                                <option value="Interpersonal Skills">Interpersonal Skills</option>
+                                                <option value="Attention to Detail">Attention to Detail</option>
+                                                <option value="Resilience">Resilience</option>
+                                                <option value="Leadership">Leadership</option>
+                                                <option value="Emotional Intelligence">Emotional Intelligence</option>
+                                                <option value="Critical Thinking">Critical Thinking</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="educationPathwayDifficulties">Difficulties Faced:</label>
+                                            <select id="educationPathwayDifficulties" name="educationPathwayDifficulties" class="form-control" required>
                                                 <option value="Yes">Yes</option>
                                                 <option value="No">No</option>
                                             </select>
                                         </div>
 
-                                    </div>
-                                    <div class="col-md-6">
-
                                         <div class="form-group">
-                                            <label for="choiceOfSelection">Choice of Selection:</label>
-                                            <select id="choiceOfSelection" name="choiceOfSelection" class="form-control"
-                                                    required>
-                                                <option value="Internship">Internship</option>
-                                                <option value="Success Rates">Success Rates</option>
-                                                <option value="Teaching Style">Teaching Style</option>
-                                                <option value="Extra Curricular Activities">Extra Curricular
-                                                    Activities
-                                                </option>
+                                            <label for="pathwayInfluence">Influence on Pathway Selection:</label>
+                                            <select id="pathwayInfluence" name="pathwayInfluence" class="form-control" required>
+                                                <option value="Select an influence on pathway selection">Select an influence on pathway selection</option>
+                                                <option value="Influenced by a third person">Influenced by a third person</option>
+                                                <option value="The selection was based on your choice and preference">The selection was based on your choice and preference</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="courseFee">Course Fee:</label>
-                                            <select id="courseFee" name="courseFee" class="form-control" required>
-                                                <option value="Less than Rs 1,000,000/=">Less than Rs 1,000,000/=
-                                                </option>
-                                                <option value="Rs 1,000,000 - Rs 3,000,000/=">Rs 1,000,000 - Rs
-                                                    3,000,000/=
-                                                </option>
-                                                <option value="More than Rs 3,000,000/=">More than Rs 3,000,000/=
-                                                </option>
+                                            <label for="changeDegreePathway">Change Pathway:</label>
+                                            <select id="changeDegreePathway" name="changeDegreePathway" class="form-control">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="learningEnvironment">Learning Environment:</label>
-                                            <select id="learningEnvironment" name="learningEnvironment"
-                                                    class="form-control" required>
-                                                <option value="Large Lectures">Large Lectures</option>
-                                                <option value="Discussion Groups">Discussion Groups</option>
-                                                <option value="Hands-on Projects">Hands-on Projects</option>
-                                                <option value="Online Lectures">Online Lectures</option>
+                                            <label for="educationalPlatformOpinion">Opinion on Educational Platform:</label>
+                                            <select id="educationalPlatformOpinion" name="educationalPlatformOpinion" class="form-control" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
                                             </select>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="assessment">Assessment:</label>
-                                            <select id="assessment" name="assessment" class="form-control" required>
-                                                <option value="Exams">Exams</option>
-                                                <option value="Reports">Reports</option>
-                                                <option value="Presentations">Presentations</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="desiredIndustries">Desired Industries:</label>
-                                            <select id="desiredIndustries" name="desiredIndustries" class="form-control"
-                                                    required>
-                                                <option value="Computer Science">Computer Science</option>
-                                                <option value="Software Engineering">Software Engineering</option>
-                                                <option value="AI & Data Science">AI & Data Science</option>
-                                                <option value="Network Security">Network Security</option>
-                                                <option value="Cyber Security">Cyber Security</option>
-                                                <option value="Business Information Systems">Business Information
-                                                    Systems
-                                                </option>
-                                                <option value="Business Management">Business Management</option>
-                                                <option value="Business Analytics">Business Analytics</option>
-                                                <option value="Art">Art</option>
-                                                <option value="Law">Law</option>
-                                                <option value="Healthcare">Healthcare</option>
-                                            </select>
-                                        </div>
-        
-                                        <button type="button" class="btn btn-primary" onclick="makePrediction()">
-                                            Predict
-                                        </button>
-
+                                        <button type="button" class="btn btn-primary" onclick="validateForm()">Predict Degree</button>
                                     </div>
                                 </div>
                             </form>
+
+                            <script>
+                                function validateForm() {
+                                    var university = document.getElementById("university");
+                                    var influenceSelection = document.getElementById("influenceSelection");
+                                    var studyHours = document.getElementById("studyHours");
+                                    var sportsEngagement = document.getElementById("sportsEngagement");
+                                    var nonJobSpecificSkills = document.getElementById("nonJobSpecificSkills");
+                                    var educationPathwayDifficulties = document.getElementById("educationPathwayDifficulties");
+                                    var pathwayInfluence = document.getElementById("pathwayInfluence");
+                                    var changeDegreePathway = document.getElementById("changeDegreePathway");
+                                    var educationalPlatformOpinion = document.getElementById("educationalPlatformOpinion");
+
+                                    if (university.value === "Select an institution" || influenceSelection.value === "Select an influence" || studyHours.value === "Select weekly study hours" || sportsEngagement.value === "Select sports engagement" || nonJobSpecificSkills.value === "Select a non-job specific skill" || educationPathwayDifficulties.value === "Select difficulties faced" || pathwayInfluence.value === "Select an influence on pathway selection" || changeDegreePathway.value === "Select change pathway" || educationalPlatformOpinion.value === "Select opinion on educational platform") {
+                                        Swal.fire({
+                                            title: "Error",
+                                            text: "Please fill out all the fields.",
+                                            icon: 'error',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    } else {
+                                        makePrediction();
+                                    }
+                                }
+                            </script>
+
                         </div>
                     </div>
-
                 </div>
-
         </div>
     </div>
+</div>
 </div>
 <jsp:include page="Common/studentFooter.jsp"/>
 </div>
@@ -200,38 +179,40 @@
 <jsp:include page="Common/studentFooterScripts.jsp"/>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script>
     function makePrediction() {
         // Collect form data
         var formData = {
-            "Hobbies": $("#hobbies").val(),
-            "Skills": $("#skills").val(),
-            "Interest": $("#interest").val(),
-            "University": $("#university").val(),
-            "Dedication_Hours_Per_Week": $("#dedicationHours").val(),
-            "Sports/Clubs": $("#sportsClubs").val(),
-            "Choice_of_Selection": $("#choiceOfSelection").val(),
-            "Course_Fee": $("#courseFee").val(),
-            "Learning_Environment": $("#learningEnvironment").val(),
-            "Assessment": $("#assessment").val(),
-            "Desired_Industries": $("#desiredIndustries").val()
+            "Institution": $("#university").val(),
+            "Influence": $("#influenceSelection").val(),
+            "Weekly Study Hours": $("#studyHours").val(),
+            "Sports Engagement": $("#sportsEngagement").val(),
+            "Career Goal": $("#careerGoal").val(), // Corrected field name
+            "Non-Job Specific Skills": $("#nonJobSpecificSkills").val(),
+            "Difficulties Faced": $("#educationPathwayDifficulties").val(), // Corrected field name
+            "Influence on Pathway Selection": $("#pathwayInfluence").val(), // Corrected field name
+            "Change Pathway": $("#changeDegreePathway").val(), // Corrected field name
+            "Opinion on Educational Platform": $("#educationalPlatformOpinion").val() // Corrected field name
         };
+
 
         console.log(formData);
 
         // Make a POST request to Flask endpoint
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:8000/predict_industry",  // Update with your Flask app endpoint
+            url: "http://127.0.0.1:5000/predict_degree",
             contentType: "application/json",
             data: JSON.stringify(formData),
             success: function (response) {
                 // Display prediction result using SweetAlert
                 Swal.fire({
-                    title: response.predicted_industry,
-                    text: 'Predicted Industry',
-                    //icon: 'success',
+
+                    title: response.predicted_degree[0],
+                    text: "might be the ideal degree pathway for you.",
+                    icon: 'info',
                     confirmButtonText: 'OK'
                 });
 
@@ -239,11 +220,16 @@
             },
             error: function (error) {
                 console.log("Error:", error);
+                Swal.fire({
+                    title: "Error",
+                    text: "An error occurred while making the prediction.",
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
         });
     }
 </script>
-
 
 </body>
 </html>
