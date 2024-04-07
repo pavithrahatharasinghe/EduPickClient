@@ -36,8 +36,8 @@
         </a>
         <div id="collapseWelfare" class="collapse" aria-labelledby="headingWelfare" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="courses.jsp">Degree Path</a>
-                <a class="collapse-item" href="../addCourse.jsp">Personality Traits</a>
+                <a class="collapse-item" href="findDegreePath.jsp">Degree Path</a>
+                <a class="collapse-item" href="personalityTraits.jsp">Personality Traits</a>
             </div>
         </div>
     </li>

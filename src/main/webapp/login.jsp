@@ -94,7 +94,7 @@
             if (user.role === "admin") {
                 window.location.href = "Admin/adminDashboard.jsp"; // Redirect to the admin dashboard
             } else if (user.role === "student") {
-                window.location.href = "studentHome.jsp"; // Redirect to the customer dashboard
+                window.location.href = "Student/studentHome.jsp"; // Redirect to the customer dashboard
             } else if(user.role === "instructor") {
                 window.location.href = "instructorDashboard.jsp"; // Generic dashboard for other roles
             }
