@@ -60,7 +60,6 @@
                                     <div class="form-group">
                                         <select name="role" class="form-control form-control-user">
                                             <option value="student">Student</option>
-                                            <option value="instructor">Instructor</option>
                                         </select>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
